@@ -42,7 +42,6 @@ const Dashboard: React.FC = () => {
                   fontSize: "24px",
                   lineHeight: "28.15px",
                   color: "#213F7D",
-                  marginBottom: "5%",
                 }}
               >
                 2,453
