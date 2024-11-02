@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 128%;
-  margin-left: -17%;
+  width: 95.5%;
+  margin-left: 0;
   margin-right: 0;
-  margin-top: -2%;
+  margin-top: 0;
   padding: 1rem 2rem;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -20,15 +20,24 @@
 .searchBar input {
   position: relative;
   width: 400px;
-  padding: 0.785rem;
+  height: 40px;
+  padding: 0;
+  // padding: 0.75rem;
   border-radius: 8px;
   border: 1px solid #ddd;
 }
 
 .searchButton {
   position: absolute;
-  left: 50.325rem;
+  left: 50.285rem;
+  width: 56px;
+  height: 40px;
+  top: 28px;
   background-image: url("../assets/Rectangle\ 9.png");
+  background-size: 56px 40px;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
 }
 
 .navLinks {

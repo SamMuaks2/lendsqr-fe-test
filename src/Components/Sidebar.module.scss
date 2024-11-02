@@ -1,8 +1,8 @@
 .sidebar {
   position: relative;
-  left: 0.2rem;
+  left: 0;
   width: 283px;
-  margin-left: -15.5%;
+  margin-left: 0;
   margin-right: 0;
   background-color: #fff;
   padding: 1rem;
@@ -20,6 +20,7 @@
       display: flex;
       flex-wrap: nowrap;
       gap: 5;
+      background-color: #fff;
       align-items: center;
       justify-content: space-between;
       width: 100%;
@@ -29,6 +30,7 @@
       border-radius: 4px;
       cursor: pointer;
       margin-bottom: 1rem;
+      margin-left: 0;
       text-align: left;
     }
 
