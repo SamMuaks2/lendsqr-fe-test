@@ -138,7 +138,6 @@
       line-height: 16.42px;
       color: #545f7d;
 
-
       .tableBodyInner {
         display: flex;
         flex-direction: row;
@@ -154,22 +153,22 @@
           font-size: 14px;
           text-align: center;
           display: inline-block;
-        
+
           &.inactive {
             color: #545f7d;
             background-color: #e5e5e5; /* Adjust background color as needed */
           }
-        
+
           &.pending {
             color: #e9b200;
             background-color: #fff4cc; /* Adjust background color as needed */
           }
-        
+
           &.blacklisted {
             color: #e4033b;
             background-color: #fde2e2; /* Adjust background color as needed */
           }
-        
+
           &.active {
             color: #39cd62;
             background-color: #e5f9e7; /* Adjust background color as needed */
@@ -181,31 +180,45 @@
 
   .pagination {
     display: flex;
-    width: 90%;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     margin-top: 20px;
-  
+    color: #213f7d;
+
+    .pageDropdown {
+      background-color: #213f7d1a;
+      color: #213f7d;
+      border: none;
+      border-radius: 4px;
+      padding: 0.25rem;
+    }
+
+    .paginationInner {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
     button {
       padding: 8px 16px;
       font-size: 14px;
       cursor: pointer;
-      background-color: #213f7d;
-      color: white;
+      background-color: #213f7d1a;
+      color: #213f7d;
       border: none;
       border-radius: 4px;
-  
+
       &:disabled {
         cursor: not-allowed;
         opacity: 0.5;
       }
     }
-  
+
     span {
       font-size: 14px;
       color: #545f7d;
     }
   }
-  
 }

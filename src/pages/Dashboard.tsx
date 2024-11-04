@@ -15,9 +15,9 @@ const Dashboard: React.FC = () => {
   const rowsPerPage = 5;
 
   //Calculating page data
-  const indexOfLastRow = currentPage * rowsPerPage;
-  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-  const currentData = userData.slice(indexOfFirstRow, indexOfLastRow);
+  // const indexOfLastRow = currentPage * rowsPerPage;
+  // const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  // const currentData = userData.slice(indexOfFirstRow, indexOfLastRow);
 
   //Page change handler
   const totalPages = Math.ceil(userData.length / rowsPerPage);
@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
 
-// Affecting status
+  // Affecting status
   const getStatusClass = (status: string) => {
     switch (status.toLowerCase()) {
       case "inactive":
@@ -137,8 +137,17 @@ const Dashboard: React.FC = () => {
             {/* Table data */}
             <tbody>
               {userData.map((user, index) => (
-                <tr key={user.id} className={styles.tableBody} style={{borderBottom: index === userData.length - 1 ? 'none' : '1px solid #213F7D1A',
-                  padding: "0.75rem"}}>
+                <tr
+                  key={user.id}
+                  className={styles.tableBody}
+                  style={{
+                    borderBottom:
+                      index === userData.length - 1
+                        ? "none"
+                        : "1px solid #213F7D1A",
+                    padding: "0.75rem",
+                  }}
+                >
                   <td className={styles.tableBodyInner}>{user.organization}</td>
                   <td className={styles.tableBodyInner}>{user.userName}</td>
                   <td className={styles.tableBodyInner}>{user.email}</td>
@@ -149,7 +158,15 @@ const Dashboard: React.FC = () => {
                   >
                     {user.dateJoined}
                   </td>
-                  <td className={styles.tableBodyInner}><span className={`${styles.status} ${getStatusClass(user.status)}`}>{user.status}</span></td>
+                  <td className={styles.tableBodyInner}>
+                    <span
+                      className={`${styles.status} ${getStatusClass(
+                        user.status
+                      )}`}
+                    >
+                      {user.status}
+                    </span>
+                  </td>
                   <td
                     className={styles.tableBodyInner}
                     style={{
@@ -167,27 +184,61 @@ const Dashboard: React.FC = () => {
 
           {/* Pagination */}
           <div className={styles.pagination}>
-            <span>Showing</span>
-            
-            <select 
-    value={currentPage} 
-    onChange={(e) => setCurrentPage(Number(e.target.value))}
-    className={styles.pageDropdown}
-  >
-    {Array.from({ length: totalPages }, (_, i) => (
-      <option key={i + 1} value={i + 1}>
-        {i + 1}
-      </option>
-    ))}
-  </select>
-           <span>of {totalPages}</span>
-            <button onClick={handlePrevPage} disabled={currentPage === 1}>
-              {"<"}
-            </button>
-            <span>1 2 3 ... {/* {totalPages - 1} {totalPages} */} 15 16</span>
-            <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-              {">"}
-            </button>
+            <div className={styles.paginationInner} style={{ width: "227px" }}>
+              <span>Showing</span>
+
+              <select
+                value={100} /*{currentPage}*/
+                onChange={(e) => setCurrentPage(Number(e.target.value))}
+                className={styles.pageDropdown}
+              >
+                {Array.from({ length: 100 /*totalPages*/ }, (_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </option>
+                ))}
+              </select>
+              <span>
+                out of {100} {/*{totalPages}*/}
+              </span>
+            </div>
+
+            <div
+              className={styles.paginationInner}
+              style={{ width: "262px", color: "#545F7D" }}
+            >
+              <button
+                onClick={handlePrevPage}
+                disabled={currentPage === 1}
+                style={{
+                  backgroundColor: "#213F7D1A",
+                  color: "#213F7D",
+                  alignItems: "center",
+                }}
+              >
+                {"<"}
+              </button>
+              <span
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  width: "100%",
+                }}
+              >
+                <span style={{ color: "#545F7D" }}>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>... {/* {totalPages - 1} {totalPages} */}</span>
+                <span>15</span>
+                <span>16</span>
+              </span>
+              <button
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+              >
+                {">"}
+              </button>
+            </div>
           </div>
           {/* End of pagination */}
         </main>
