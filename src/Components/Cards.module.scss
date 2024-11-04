@@ -1,0 +1,48 @@
+.cardsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 26px;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-top: 0;
+    padding-bottom: 0;
+    gap: 0.5px;
+    width: 240px;
+    height: 160px;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    img {
+      padding-top: 10%;
+    }
+
+    .cardTitle {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16.42px;
+      color: #545f7d;
+    }
+
+    .cardValue {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 28.15px;
+      color: #213f7d;
+    }
+
+    h3 {
+      margin-top: -10%;
+      margin-bottom: 5%;
+    }
+  }
+}
