@@ -11,6 +11,22 @@ import userData from "../../data/users.json";
 import styles from "./Dashboard.module.scss";
 
 const Dashboard: React.FC = () => {
+// Affecting status
+  const getStatusClass = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "inactive":
+        return styles.inactive;
+      case "pending":
+        return styles.pending;
+      case "blacklisted":
+        return styles.blacklisted;
+      case "active":
+        return styles.active;
+      default:
+        return "";
+    }
+  };
+
   return (
     <div className={styles.dashboardContainer}>
       <Navbar />
@@ -48,7 +64,7 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          <div className={styles.userTable}>
+          <table className={styles.userTable}>
             <thead>
               <tr className={styles.tableHead}>
                 <th className={styles.tableHeadInner}>
@@ -103,8 +119,9 @@ const Dashboard: React.FC = () => {
 
             {/* Table data */}
             <tbody>
-              {userData.map((user) => (
-                <tr key={user.id} className={styles.tableBody}>
+              {userData.map((user, index) => (
+                <tr key={user.id} className={styles.tableBody} style={{borderBottom: index === userData.length - 1 ? 'none' : '1px solid #213F7D1A',
+                  padding: "0.75rem"}}>
                   <td className={styles.tableBodyInner}>{user.organization}</td>
                   <td className={styles.tableBodyInner}>{user.userName}</td>
                   <td className={styles.tableBodyInner}>{user.email}</td>
@@ -115,7 +132,7 @@ const Dashboard: React.FC = () => {
                   >
                     {user.dateJoined}
                   </td>
-                  <td className={styles.tableBodyInner}>{user.status}</td>
+                  <td className={styles.tableBodyInner}><span className={`${styles.status} ${getStatusClass(user.status)}`}>{user.status}</span></td>
                   <td
                     className={styles.tableBodyInner}
                     style={{
@@ -129,7 +146,7 @@ const Dashboard: React.FC = () => {
                 </tr>
               ))}
             </tbody>
-          </div>
+          </table>
         </main>
       </div>
     </div>
