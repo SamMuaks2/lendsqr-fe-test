@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
-import userData from "../../data/users.json";
 import styles from "./Dashboard.module.scss";
 import Cards from "../Components/Cards";
 import Table from "../Components/Table";
