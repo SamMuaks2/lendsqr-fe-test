@@ -4,10 +4,12 @@ import Sidebar from "../Components/Sidebar";
 import Cards from "../Components/Cards";
 import styles from "./UserPage.module.scss";
 import Table from "../Components/Table";
+import ActivateUserIcon from "../assets/np_user_2995993_000000 1.png";
+import BlacklistUserIcon from "../assets/np_delete-friend_3248001_000000 1.png";
+import ViewUserIcon from "../assets/np_view_1214519_000000 1.png";
 import { Pagination } from "../Components/Pagination";
 
 const UserPage: React.FC = () => {
-  
   const [formData, setFormData] = useState({
     organization: "",
     username: "",
@@ -144,6 +146,32 @@ const UserPage: React.FC = () => {
               </button>
             </div>
           </form>
+
+          {/* user info */}
+          <div className={styles.popup}>
+            <ul>
+              <li>
+                <img src={ViewUserIcon} alt="" className={styles.popupImage} />
+                View details
+              </li>
+              <li>
+                <img
+                  src={BlacklistUserIcon}
+                  alt=""
+                  className={styles.popupImage}
+                />
+                Blacklist user
+              </li>
+              <li>
+                <img
+                  src={ActivateUserIcon}
+                  alt=""
+                  className={styles.popupImage}
+                />
+                Activate user
+              </li>
+            </ul>
+          </div>
 
           <Pagination />
         </main>

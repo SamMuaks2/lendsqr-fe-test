@@ -222,10 +222,7 @@ export const Table: React.FC = () => {
 
       {/* Filter Form Popup */}
       {showFilterPopup && (
-        <div
-          // className={styles.organizationFilterFormContainer}
-          onClick={closePopup}
-        >
+        <div onClick={closePopup}>
           <form
             onSubmit={handleFilter}
             className={styles.organizationFilterForm}
