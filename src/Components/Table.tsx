@@ -11,6 +11,46 @@ export const Table: React.FC = () => {
   
   const [showPopup, setShowPopup] = useState(false);
   const [selectedUser, setSelectedUser] = useState<number | null>(null);
+  const [showFilterPopup, setShowFilterPopup] = useState(false);
+
+  // Toggle filter popup visibility
+  const toggleFilterPopup = () => {
+    setShowFilterPopup((prev) => !prev);
+  };
+
+  const [formData, setFormData] = useState({
+    organization: "",
+    username: "",
+    email: "",
+    date: "",
+    phoneNumber: "",
+    status: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleReset = () => {
+    setFormData({
+      organization: "",
+      username: "",
+      email: "",
+      date: "",
+      phoneNumber: "",
+      status: "",
+    });
+  };
+
+  const handleFilter = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Filtered data:", formData);
+    //Filtering logic
+  };
+
 
   // Toggle popup visibility
   const togglePopup = (userId: number) => {
@@ -48,9 +88,10 @@ export const Table: React.FC = () => {
           <tr className={styles.tableHead}>
             <th className={styles.tableHeadInner}>
               <h4 className={styles.tableTitle}>ORGANIZATION</h4>
-              <a href="#">
+              <button onClick={toggleFilterPopup} style={{ background: "none", border: "none", cursor: "pointer" }}>
                 <img src={FilterIcon} alt="" />
-              </a>
+
+              </button>
             </th>
 
             <th className={styles.tableHeadInner}>
@@ -146,6 +187,44 @@ export const Table: React.FC = () => {
           ))}
         </tbody>
       </table>
+
+      {/* Filter Form Popup */}
+      {showFilterPopup && (
+        <div className={styles.organizationFilterForm} onClick={closePopup}>
+          <form onSubmit={handleFilter} className={styles.organizationFilterFormilterForm} onClick={(e) => e.stopPropagation()}>
+            <div>
+              <label className={styles.label}>Organization</label>
+              <select name="organization" value={formData.organization} onChange={handleChange} className={styles.dropdown}>
+                <option value="">Select</option>
+                <option value="Organization1">Organization 1</option>
+                <option value="Organization2">Organization 2</option>
+                <option value="Organization3">Organization 3</option>
+                <option value="Organization4">Organization 4</option>
+              </select>
+            </div>
+            <label className={styles.label}>Username</label>
+            <input type="text" name="username" placeholder="User" value={formData.username} onChange={handleChange} className={styles.textInput} />
+            <label className={styles.label}>Email</label>
+            <input type="text" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className={styles.textInput} />
+            <label className={styles.label}>Date</label>
+            <input type="date" name="date" value={formData.date} onChange={handleChange} className={styles.dateInput} />
+            <label className={styles.label}>Phone Number</label>
+            <input type="text" name="phoneNumber" placeholder="Phone Number" value={formData.phoneNumber} onChange={handleChange} className={styles.textInput} />
+            <label className={styles.label}>Status</label>
+            <select name="status" value={formData.status} onChange={handleChange} className={styles.dropdown}>
+              <option value="">Select</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+              <option value="pending">Pending</option>
+              <option value="blacklisted">Blacklisted</option>
+            </select>
+            <div className={styles.buttonContainer}>
+              <button type="button" onClick={handleReset} className={styles.resetButton}>Reset</button>
+              <button type="submit" className={styles.filterButton}>Filter</button>
+            </div>
+          </form>
+        </div>
+      )}
     </div>
   );
 };
