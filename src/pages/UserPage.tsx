@@ -6,6 +6,7 @@ import styles from "./UserPage.module.scss";
 import Table from "../Components/Table";
 
 const UserPage: React.FC = () => {
+  
   const [formData, setFormData] = useState({
     organization: "",
     username: "",

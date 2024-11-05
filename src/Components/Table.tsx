@@ -1,10 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import FilterIcon from "../assets/filter-results-button.png";
 import MoreIcon from "../assets/ic-more-vert-18px.png";
 import userData from "../../data/users.json";
 import styles from "./Table.module.scss";
+import ActivateUserIcon from "../assets/np_user_2995993_000000 1.png";
+import BlacklistUserIcon from "../assets/np_delete-friend_3248001_000000 1.png";
+import ViewUserIcon from "../assets/np_view_1214519_000000 1.png";
 
 export const Table: React.FC = () => {
+  
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<number | null>(null);
+
+  // Toggle popup visibility
+  const togglePopup = (userId: number) => {
+    setSelectedUser(userId);
+    setShowPopup(!showPopup);
+  };
+
+  // Close popup when clicking outside or on an action
+  const closePopup = () => {
+    setShowPopup(false);
+    setSelectedUser(null);
+  };
+
   // Affecting status
   const getStatusClass = (status: string) => {
     switch (status.toLowerCase()) {
@@ -107,7 +126,21 @@ export const Table: React.FC = () => {
                   marginLeft: "15px",
                 }}
               >
+              <button style={{border: "none", outline: "none", background: "none", cursor: "pointer"}} onClick={() => togglePopup(user.id)}>
+
                 <img src={MoreIcon} alt="" />
+              </button>
+
+              {/* Popup Menu */}
+              {showPopup && selectedUser === user.id && (
+                  <div className={styles.popup}>
+                    <ul>
+                      <li onClick={closePopup}><img src={ViewUserIcon} alt="" className={styles.popupImage} />View details</li>
+                      <li onClick={closePopup}><img src={BlacklistUserIcon} alt="" className={styles.popupImage} />Blacklist user</li>
+                      <li onClick={closePopup}><img src={ActivateUserIcon} alt="" className={styles.popupImage} />Activate user</li>
+                    </ul>
+                    </div>
+              )}
               </td>
             </tr>
           ))}
