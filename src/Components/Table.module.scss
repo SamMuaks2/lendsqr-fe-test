@@ -76,7 +76,7 @@
 
         &.inactive {
           color: #545f7d;
-          background-color: #e5e5e5; 
+          background-color: #e5e5e5;
         }
 
         &.pending {
@@ -86,7 +86,7 @@
 
         &.blacklisted {
           color: #e4033b;
-          background-color: #fde2e2; 
+          background-color: #fde2e2;
         }
 
         &.active {
@@ -99,29 +99,29 @@
         position: absolute;
         width: 180px;
         height: 130px;
-        top: 622px; 
+        top: 622px;
         left: 1151px;
         background-color: #ffffff;
-        color: #545F7D;
+        color: #545f7d;
         border: 1px solid #ddd;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 10px;
         z-index: 1000;
-      
+
         ul {
           list-style-type: none;
           padding: 0;
           margin: 0;
-      
+
           li {
             font-family: Work Sans;
-font-size: 14px;
-font-weight: 500;
-line-height: 16.42px;
-text-align: center;
-color: #545F7D;
-width: 117px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 16.42px;
+            text-align: center;
+            color: #545f7d;
+            width: 117px;
             padding: 10px 6px;
             cursor: pointer;
             &:hover {
@@ -136,98 +136,110 @@ width: 117px;
           }
         }
       }
-      
     }
   }
-
-  .organizationFilterForm {
-    position: absolute;
-    top: 438px;
-    left: 358px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    padding: 0.75rem;
-    gap: 1rem;
-    width: 270px;
-    margin: 20px auto;
-    background-color: #fff;
-    border: 1px solid #545f7d24;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .label {
-    font-family: Work Sans;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 16.42px;
-    text-align: left;
-    color: #545f7d;
-
-    width: 70px;
-    height: 16px;
-    top: 600px;
-    left: 378px;
-    gap: 0px;
-    opacity: 0px;
-  }
-
-  .textInput,
-  .dropdown,
-  .dateInput {
-    width: 230px;
-    height: 40px;
-    top: 622px;
-    left: 378px;
-    gap: 0px;
-    border: 1px solid #213f7d;
-    outline: none;
-    border-radius: 8px;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
-  .buttonContainer {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .resetButton {
-    width: 98px;
-    height: 40px;
-    top: 1020px;
-    left: 378px;
-    gap: 0px;
-    border-radius: 8px;
-    opacity: 0px;
-    border: 1px solid #545f7d;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #545f7d;
-    }
-  }
-
-  .filterButton {
-    width: 98px;
-    height: 40px;
-    top: 1020px;
-    left: 378px;
-    gap: 0px;
-    background-color: #39cdcc;
-    color: #fff;
-    border-radius: 8px;
-    opacity: 0px;
-    border: 1px solid #545f7d;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #1a3363;
-    }
-  }
-
 }
+
+// .organizationFilterFormContainer {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   position: fixed;
+//   top: 20%;
+//   left: 50%;
+//   transform: translate(-50%, -20%);
+//   background: rgba(0, 0, 0, 0.5);
+//   padding: 20px;
+//   z-index: 1000;
+
+.organizationFilterForm {
+  position: absolute;
+  top: 438px;
+  left: 358px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0.75rem;
+  gap: 1rem;
+  width: 270px;
+  margin: 20px auto;
+  background-color: #fff;
+  border: 1px solid #545f7d24;
+  border-radius: 4px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.42px;
+  text-align: left;
+  color: #545f7d;
+
+  width: 70px;
+  height: 16px;
+  top: 600px;
+  left: 378px;
+  gap: 0px;
+  opacity: 0px;
+}
+
+.textInput,
+.dropdown,
+.dateInput {
+  width: 230px;
+  height: 40px;
+  top: 622px;
+  left: 378px;
+  gap: 0px;
+  border: 1px solid #213f7d;
+  outline: none;
+  border-radius: 8px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.resetButton {
+  width: 98px;
+  height: 40px;
+  top: 1020px;
+  left: 378px;
+  gap: 0px;
+  border-radius: 8px;
+  opacity: 0px;
+  border: 1px solid #545f7d;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #545f7d;
+  }
+}
+
+.filterButton {
+  width: 98px;
+  height: 40px;
+  top: 1020px;
+  left: 378px;
+  gap: 0px;
+  background-color: #39cdcc;
+  color: #fff;
+  border-radius: 8px;
+  opacity: 0px;
+  border: 1px solid #545f7d;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1a3363;
+  }
+}
+// }

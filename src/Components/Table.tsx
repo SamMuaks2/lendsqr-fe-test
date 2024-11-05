@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import FilterIcon from "../assets/filter-results-button.png";
 import MoreIcon from "../assets/ic-more-vert-18px.png";
 import userData from "../../data/users.json";
@@ -8,7 +8,6 @@ import BlacklistUserIcon from "../assets/np_delete-friend_3248001_000000 1.png";
 import ViewUserIcon from "../assets/np_view_1214519_000000 1.png";
 
 export const Table: React.FC = () => {
-  
   const [showPopup, setShowPopup] = useState(false);
   const [selectedUser, setSelectedUser] = useState<number | null>(null);
   const [showFilterPopup, setShowFilterPopup] = useState(false);
@@ -51,7 +50,6 @@ export const Table: React.FC = () => {
     //Filtering logic
   };
 
-
   // Toggle popup visibility
   const togglePopup = (userId: number) => {
     setSelectedUser(userId);
@@ -88,9 +86,15 @@ export const Table: React.FC = () => {
           <tr className={styles.tableHead}>
             <th className={styles.tableHeadInner}>
               <h4 className={styles.tableTitle}>ORGANIZATION</h4>
-              <button onClick={toggleFilterPopup} style={{ background: "none", border: "none", cursor: "pointer" }}>
+              <button
+                onClick={toggleFilterPopup}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
                 <img src={FilterIcon} alt="" />
-
               </button>
             </th>
 
@@ -167,21 +171,49 @@ export const Table: React.FC = () => {
                   marginLeft: "15px",
                 }}
               >
-              <button style={{border: "none", outline: "none", background: "none", cursor: "pointer"}} onClick={() => togglePopup(user.id)}>
+                <button
+                  style={{
+                    border: "none",
+                    outline: "none",
+                    background: "none",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => togglePopup(user.id)}
+                >
+                  <img src={MoreIcon} alt="" />
+                </button>
 
-                <img src={MoreIcon} alt="" />
-              </button>
-
-              {/* Popup Menu */}
-              {showPopup && selectedUser === user.id && (
+                {/* Popup Menu */}
+                {showPopup && selectedUser === user.id && (
                   <div className={styles.popup}>
                     <ul>
-                      <li onClick={closePopup}><img src={ViewUserIcon} alt="" className={styles.popupImage} />View details</li>
-                      <li onClick={closePopup}><img src={BlacklistUserIcon} alt="" className={styles.popupImage} />Blacklist user</li>
-                      <li onClick={closePopup}><img src={ActivateUserIcon} alt="" className={styles.popupImage} />Activate user</li>
+                      <li onClick={closePopup}>
+                        <img
+                          src={ViewUserIcon}
+                          alt=""
+                          className={styles.popupImage}
+                        />
+                        View details
+                      </li>
+                      <li onClick={closePopup}>
+                        <img
+                          src={BlacklistUserIcon}
+                          alt=""
+                          className={styles.popupImage}
+                        />
+                        Blacklist user
+                      </li>
+                      <li onClick={closePopup}>
+                        <img
+                          src={ActivateUserIcon}
+                          alt=""
+                          className={styles.popupImage}
+                        />
+                        Activate user
+                      </li>
                     </ul>
-                    </div>
-              )}
+                  </div>
+                )}
               </td>
             </tr>
           ))}
@@ -190,28 +222,75 @@ export const Table: React.FC = () => {
 
       {/* Filter Form Popup */}
       {showFilterPopup && (
-        <div className={styles.organizationFilterForm} onClick={closePopup}>
-          <form onSubmit={handleFilter} className={styles.organizationFilterFormilterForm} onClick={(e) => e.stopPropagation()}>
-            <div>
-              <label className={styles.label}>Organization</label>
-              <select name="organization" value={formData.organization} onChange={handleChange} className={styles.dropdown}>
-                <option value="">Select</option>
-                <option value="Organization1">Organization 1</option>
-                <option value="Organization2">Organization 2</option>
-                <option value="Organization3">Organization 3</option>
-                <option value="Organization4">Organization 4</option>
-              </select>
-            </div>
+        <div
+          // className={styles.organizationFilterFormContainer}
+          onClick={closePopup}
+        >
+          <form
+            onSubmit={handleFilter}
+            className={styles.organizationFilterForm}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <label className={styles.label}>Organization</label>
+            <select
+              name="organization"
+              value={formData.organization}
+              onChange={handleChange}
+              className={styles.dropdown}
+              style={{ width: "255px" }}
+            >
+              <option value="">Select</option>
+              <option value="Organization1">Organization 1</option>
+              <option value="Organization2">Organization 2</option>
+              <option value="Organization3">Organization 3</option>
+              <option value="Organization4">Organization 4</option>
+            </select>
+
             <label className={styles.label}>Username</label>
-            <input type="text" name="username" placeholder="User" value={formData.username} onChange={handleChange} className={styles.textInput} />
+            <input
+              type="text"
+              name="username"
+              placeholder="User"
+              value={formData.username}
+              onChange={handleChange}
+              className={styles.textInput}
+            />
             <label className={styles.label}>Email</label>
-            <input type="text" name="email" placeholder="Email" value={formData.email} onChange={handleChange} className={styles.textInput} />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className={styles.textInput}
+            />
             <label className={styles.label}>Date</label>
-            <input type="date" name="date" value={formData.date} onChange={handleChange} className={styles.dateInput} />
-            <label className={styles.label}>Phone Number</label>
-            <input type="text" name="phoneNumber" placeholder="Phone Number" value={formData.phoneNumber} onChange={handleChange} className={styles.textInput} />
+            <input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              className={styles.dateInput}
+            />
+            <label className={styles.label} style={{ width: "118px" }}>
+              Phone Number
+            </label>
+            <input
+              type="text"
+              name="phoneNumber"
+              placeholder="Phone Number"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              className={styles.textInput}
+            />
             <label className={styles.label}>Status</label>
-            <select name="status" value={formData.status} onChange={handleChange} className={styles.dropdown}>
+            <select
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+              className={styles.dropdown}
+              style={{ width: "255px" }}
+            >
               <option value="">Select</option>
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
@@ -219,8 +298,16 @@ export const Table: React.FC = () => {
               <option value="blacklisted">Blacklisted</option>
             </select>
             <div className={styles.buttonContainer}>
-              <button type="button" onClick={handleReset} className={styles.resetButton}>Reset</button>
-              <button type="submit" className={styles.filterButton}>Filter</button>
+              <button
+                type="button"
+                onClick={handleReset}
+                className={styles.resetButton}
+              >
+                Reset
+              </button>
+              <button type="submit" className={styles.filterButton}>
+                Filter
+              </button>
             </div>
           </form>
         </div>
