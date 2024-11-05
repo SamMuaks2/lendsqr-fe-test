@@ -4,6 +4,7 @@ import Sidebar from "../Components/Sidebar";
 import Cards from "../Components/Cards";
 import styles from "./UserPage.module.scss";
 import Table from "../Components/Table";
+import { Pagination } from "../Components/Pagination";
 
 const UserPage: React.FC = () => {
   
@@ -143,6 +144,8 @@ const UserPage: React.FC = () => {
               </button>
             </div>
           </form>
+
+          <Pagination />
         </main>
       </div>
     </div>
