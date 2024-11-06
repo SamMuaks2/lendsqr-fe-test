@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Tabs.module.scss";
+import GeneralDetails from "./GeneralDetails";
 
 type TabProps = {
   label: string;
@@ -59,7 +60,7 @@ const Tabs: React.FC = () => {
       </div>
       <div className={styles.activeTab}>
         {/* Content for each tab */}
-        {activeTab === "General Details" && <div> </div>}
+        {activeTab === "General Details" && <GeneralDetails />}
         {activeTab === "Documents" && <div> </div>}
         {activeTab === "Bank Details" && <div> </div>}
         {activeTab === "Loans" && <div> </div>}
