@@ -20,12 +20,81 @@
   flex: 1;
   overflow-y: auto;
 
-  h1 {
+  .backButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    width: 152px;
+    height: 30px;
+    top: 160px;
+    left: 343px;
+    gap: 0px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    font-family: Work Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.77px;
     text-align: left;
-    font-family: "Work Sans";
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28.15px;
-    color: #213f7d;
+    color: #545f7d;
+  }
+
+  .backButton:hover {
+    outline: #545f7d;
+    border: 1px solid #213f7d;
+    border-radius: 8px;
+  }
+
+  .headerDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      text-align: left;
+      font-family: "Work Sans";
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28.15px;
+      color: #213f7d;
+    }
+
+    .headerButton {
+      width: 170px;
+      height: 40px;
+      top: 210px;
+      left: 1020px;
+      background-color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .headerButton:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .userHeader {
+    display: flex;
+    flex-direction: column;
+    width: 1037px;
+    height: 210px;
+    top: 290px;
+    left: 343px;
+    margin-top: 5%;
+
+    .basicInfo {
+      display: flex;
+      flex-direction: row;
+
+      .userName {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 }
