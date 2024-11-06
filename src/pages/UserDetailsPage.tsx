@@ -4,6 +4,9 @@ import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 import BackIcon from "../assets/np_back_3007750_000000 1.png";
 import UserAvatar from "../assets/user-avatar.png";
+import UserStar from "../assets/np_star_1208084_000000 1.png";
+import UserStarBlank from "../assets/np_star_1171151_000000 1.png";
+import Tabs from "../Components/Tabs";
 
 const UserDetailsPage: React.FC = () => {
   return (
@@ -46,19 +49,40 @@ const UserDetailsPage: React.FC = () => {
               </button>
             </div>
           </div>
-          {/* Edit here */}
+          
+
           <div className={styles.userHeader}>
             <div className={styles.basicInfo}>
               <img
                 src={UserAvatar}
                 alt=""
-                style={{ width: "100px", height: "100px" }}
+                style={{ width: "100px", height: "100px", top: "320px", left: "373px", marginRight: "5%" }}
               />
               <div className={styles.userName}>
                 <h3>Grace Effiom</h3>
                 <p>LSQFf587g90</p>
               </div>
+
+              <hr />
+
+              <div className={styles.tier}>
+                <p>User’s Tier</p>
+                <div style={{flexDirection: "row", paddingTop: "1.75rem"}}>
+                  <img src={UserStar} alt="" />
+                  <img src={UserStarBlank} alt="" />
+                  <img src={UserStarBlank} alt="" />
+                </div>
+              </div>
+
+              <hr />
+
+              <div className={styles.customerAccount}>
+                <h3 className={styles.price}>₦200,000.00</h3>
+                <p>9912345678/Providus Bank</p>
+              </div>
             </div>
+
+            <Tabs />
           </div>
         </main>
       </div>

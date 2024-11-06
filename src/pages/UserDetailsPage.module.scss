@@ -53,6 +53,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 1037px;
+    height: 210px;
+    top: 290px;
+    left: 343px;
+    border-radius: 4px;
+    border: 1px solid #213F7D0F;
+    color: #FFFFFF;
+
 
     h1 {
       text-align: left;
@@ -81,19 +89,132 @@
   .userHeader {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    padding: 5%;
     width: 1037px;
     height: 210px;
     top: 290px;
     left: 343px;
     margin-top: 5%;
+    border: 1px solid #545f7d;
+    background-color: #fff;
 
     .basicInfo {
       display: flex;
       flex-direction: row;
+      align-items: start;
+      justify-content: space-between;
+      width: 613px;
+      height: 100px;
+      top: 320px;
+      left: 373px;
 
       .userName {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        width: 140px;
+        height: 50px;
+        top: 345px;
+        left: 493px;
+
+
+        h3 {
+          width: 140px;
+          height: 26px;
+          top: 345px;
+          left: 493px;
+          font-family: Work Sans;
+          font-size: 22px;
+          font-weight: 500;
+          line-height: 25.81px;
+          text-align: left;
+          color: #213F7D;
+        }
+
+        p {
+          width: 91px;
+          height: 16px;
+          top: 379px;
+          left: 493px;
+          font-family: Work Sans;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 16.42px;
+          text-align: left;
+          color: #545F7D;
+        }
+      }
+
+      hr {
+        margin-top: 3.875rem;
+        width: 80px;
+        height: 0px;
+        top: 330px;
+        left: 663px;
+        border: 1px 0px 0px 0px;
+        opacity: 0.2px;
+        transform: rotate(-90deg);
+      }
+
+      .tier {
+        flex-direction: column;
+        align-items: center;
+        width: 73px;
+        height: 42px;
+        top: 349px;
+        left: 693px;
+        padding-top: 0.75rem;
+
+
+        p {
+          width: 73px;
+          height: 16px;
+          top: 349px;
+          left: 693px;
+          font-family: Work Sans;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 16.42px;
+          text-align: left;
+          color: #545F7D;
+        }
+      }
+
+      .customerAccount {
+        flex-direction: column;
+        align-items: center;
+        width: 160px;
+        height: 49px;
+        top: 344px;
+        left: 826px;
+        color: #213F7D;
+
+.price {
+  width: 137px;
+height: 23px;
+top: 344px;
+left: 826px;
+font-family: Work Sans;
+font-size: 22px;
+font-weight: 500;
+line-height: 25.81px;
+text-align: left;
+
+}
+
+p {
+  width: 157px;
+height: 14px;
+top: 379px;
+left: 829px;
+font-family: Work Sans;
+font-size: 12px;
+font-weight: 400;
+line-height: 14.08px;
+text-align: left;
+
+}
       }
     }
   }
