@@ -54,13 +54,13 @@
     align-items: center;
     justify-content: space-between;
     width: 1037px;
+    // width: 90%;
     height: 210px;
     top: 290px;
     left: 343px;
     border-radius: 4px;
-    border: 1px solid #213F7D0F;
-    color: #FFFFFF;
 
+    color: #ffffff;
 
     h1 {
       text-align: left;
@@ -92,11 +92,12 @@
     align-items: flex-start;
     padding: 5%;
     width: 1037px;
+    // width: 90%;
     height: 210px;
     top: 290px;
     left: 343px;
     margin-top: 5%;
-    border: 1px solid #545f7d;
+    border: 1px solid #213f7d0f;
     background-color: #fff;
 
     .basicInfo {
@@ -118,7 +119,6 @@
         top: 345px;
         left: 493px;
 
-
         h3 {
           width: 140px;
           height: 26px;
@@ -129,7 +129,7 @@
           font-weight: 500;
           line-height: 25.81px;
           text-align: left;
-          color: #213F7D;
+          color: #213f7d;
         }
 
         p {
@@ -142,7 +142,7 @@
           font-weight: 400;
           line-height: 16.42px;
           text-align: left;
-          color: #545F7D;
+          color: #545f7d;
         }
       }
 
@@ -166,7 +166,6 @@
         left: 693px;
         padding-top: 0.75rem;
 
-
         p {
           width: 73px;
           height: 16px;
@@ -177,7 +176,7 @@
           font-weight: 500;
           line-height: 16.42px;
           text-align: left;
-          color: #545F7D;
+          color: #545f7d;
         }
       }
 
@@ -188,33 +187,31 @@
         height: 49px;
         top: 344px;
         left: 826px;
-        color: #213F7D;
+        color: #213f7d;
 
-.price {
-  width: 137px;
-height: 23px;
-top: 344px;
-left: 826px;
-font-family: Work Sans;
-font-size: 22px;
-font-weight: 500;
-line-height: 25.81px;
-text-align: left;
+        .price {
+          width: 137px;
+          height: 23px;
+          top: 344px;
+          left: 826px;
+          font-family: Work Sans;
+          font-size: 22px;
+          font-weight: 500;
+          line-height: 25.81px;
+          text-align: left;
+        }
 
-}
-
-p {
-  width: 157px;
-height: 14px;
-top: 379px;
-left: 829px;
-font-family: Work Sans;
-font-size: 12px;
-font-weight: 400;
-line-height: 14.08px;
-text-align: left;
-
-}
+        p {
+          width: 157px;
+          height: 14px;
+          top: 379px;
+          left: 829px;
+          font-family: Work Sans;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 14.08px;
+          text-align: left;
+        }
       }
     }
   }

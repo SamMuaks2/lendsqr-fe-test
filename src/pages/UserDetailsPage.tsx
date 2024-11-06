@@ -49,14 +49,19 @@ const UserDetailsPage: React.FC = () => {
               </button>
             </div>
           </div>
-          
 
           <div className={styles.userHeader}>
             <div className={styles.basicInfo}>
               <img
                 src={UserAvatar}
                 alt=""
-                style={{ width: "100px", height: "100px", top: "320px", left: "373px", marginRight: "5%" }}
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  top: "320px",
+                  left: "373px",
+                  marginRight: "5%",
+                }}
               />
               <div className={styles.userName}>
                 <h3>Grace Effiom</h3>
@@ -67,7 +72,7 @@ const UserDetailsPage: React.FC = () => {
 
               <div className={styles.tier}>
                 <p>User’s Tier</p>
-                <div style={{flexDirection: "row", paddingTop: "1.75rem"}}>
+                <div style={{ flexDirection: "row", paddingTop: "1.75rem" }}>
                   <img src={UserStar} alt="" />
                   <img src={UserStarBlank} alt="" />
                   <img src={UserStarBlank} alt="" />
