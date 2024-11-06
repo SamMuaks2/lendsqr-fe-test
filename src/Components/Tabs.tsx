@@ -57,7 +57,7 @@ const Tabs: React.FC = () => {
           />
         ))}
       </div>
-      <div style={{ padding: "0", margin: "0" }}>
+      <div className={styles.activeTab}>
         {/* Content for each tab */}
         {activeTab === "General Details" && <div> </div>}
         {activeTab === "Documents" && <div> </div>}

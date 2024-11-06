@@ -91,6 +91,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 5%;
+    padding-bottom: 0;
     width: 1037px;
     // width: 90%;
     height: 210px;
@@ -99,6 +100,7 @@
     margin-top: 5%;
     border: 1px solid #213f7d0f;
     background-color: #fff;
+    box-shadow: 0 4px 8px #213f7d0f;
 
     .basicInfo {
       display: flex;
