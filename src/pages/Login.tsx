@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import LoginHero from "../assets/pablo-sign-in 1.png";
 import styles from "./Login.module.scss";
@@ -7,12 +8,15 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // API request
     console.log("Email:", email);
     console.log("Password:", password);
+
+    navigate("/dashboard");
   };
 
   const toggleShowPassword = () => {
@@ -69,9 +73,11 @@ const Login: React.FC = () => {
             <a href="#" className={styles.forgotPassword}>
               FORGOT PASSWORD?
             </a>
+            
             <button type="submit" className={styles.loginButton}>
               LOG IN
             </button>
+            
           </div>
         </form>
       </div>

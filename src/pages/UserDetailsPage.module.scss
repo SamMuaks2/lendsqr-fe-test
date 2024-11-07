@@ -20,14 +20,20 @@
   flex: 1;
   overflow-y: auto;
 
+  .backButtonMain {
+    width: 152px;
+    height: 30px;
+    top: 160px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
   .backButton {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #fff;
-    width: 152px;
-    height: 30px;
-    top: 160px;
     left: 343px;
     gap: 0px;
     outline: none;
@@ -41,6 +47,7 @@
     text-align: left;
     color: #545f7d;
   }
+}
 
   .backButton:hover {
     outline: #545f7d;

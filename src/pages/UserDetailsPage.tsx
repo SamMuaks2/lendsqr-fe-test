@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./UserDetailsPage.module.scss";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
@@ -18,8 +19,10 @@ const UserDetailsPage: React.FC = () => {
 
         <main className={styles.userDetailsPageMainContent}>
           {/* Main content */}
-          <button className={styles.backButton}>
+          <button className={styles.backButtonMain}>
+          <Link to="/dashboard" className={styles.backButton} style={{textDecoration: "none"}}>
             <img src={BackIcon} alt="" /> Back to Users
+            </Link>
           </button>
 
           <div className={styles.headerDiv}>

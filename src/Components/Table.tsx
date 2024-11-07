@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import FilterIcon from "../assets/filter-results-button.png";
 import MoreIcon from "../assets/ic-more-vert-18px.png";
 import userData from "../../data/users.json";
@@ -187,6 +188,7 @@ export const Table: React.FC = () => {
                 {showPopup && selectedUser === user.id && (
                   <div className={styles.popup}>
                     <ul>
+                      <Link to="/user/:id" style={{textDecoration: "none"}}>
                       <li onClick={closePopup}>
                         <img
                           src={ViewUserIcon}
@@ -195,6 +197,7 @@ export const Table: React.FC = () => {
                         />
                         View details
                       </li>
+                      </Link>
                       <li onClick={closePopup}>
                         <img
                           src={BlacklistUserIcon}

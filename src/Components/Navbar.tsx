@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import SearchIcon from "../assets/search.png";
 import Bell from "../assets/Vector.png";
@@ -16,7 +17,9 @@ const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
+      <Link to="/">
         <img src={Logo} alt="Logo" />
+      </Link>
       </div>
 
       <div className={styles.searchBar}>
