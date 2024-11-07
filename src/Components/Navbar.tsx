@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 import SearchIcon from "../assets/search.png";
 import Bell from "../assets/Vector.png";
@@ -7,6 +7,12 @@ import DropdownIcon from "../assets/np_dropdown_615120_000000 1.png";
 import styles from "./Navbar.module.scss";
 
 const Navbar: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
@@ -18,6 +24,11 @@ const Navbar: React.FC = () => {
         <button className={styles.searchButton}>
           <img src={SearchIcon} alt="Icon" />
         </button>
+      </div>
+
+      {/* Mobile Menu Toggle Button */}
+      <div className={styles.mobileMenuIcon} onClick={toggleMobileMenu}>
+        ☰
       </div>
 
       <div className={styles.navLinks}>
