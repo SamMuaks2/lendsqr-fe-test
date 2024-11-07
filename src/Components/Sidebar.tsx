@@ -40,7 +40,7 @@ const Sidebar: React.FC = () => {
     <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebaropen : ''}`}>
       <div className={styles.sideContainer}>
         <button className={styles.toggleSidebarBtn} onClick={toggleSidebar}>
-          &#9776;
+          {"=>"}&#9776;
         </button>
 
         <div className={styles.dropdown}>
