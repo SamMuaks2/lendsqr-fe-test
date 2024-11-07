@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
         ☰
       </div>
 
-      <div className={styles.navLinks}>
+      <div className={`${styles.navLinks} ${isMobileMenuOpen ? styles.navLinksOpen : ""}`}>
         <a href="#" className={styles.docsLink}>
           Docs
         </a>
