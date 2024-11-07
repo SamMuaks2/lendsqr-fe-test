@@ -24,16 +24,25 @@ import styles from "./Sidebar.module.scss";
 
 const Sidebar: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   const organizations = ["Organization A", "Organization B", "Organization C"];
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebaropen : ''}`}>
       <div className={styles.sideContainer}>
+        <button className={styles.toggleSidebarBtn} onClick={toggleSidebar}>
+          &#9776;
+        </button>
+
         <div className={styles.dropdown}>
           <button onClick={toggleDropdown} className={styles.switchOrg}>
             <img src={Briefcase} alt="" />
