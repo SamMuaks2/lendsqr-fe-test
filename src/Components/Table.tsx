@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import FilterIcon from "../assets/filter-results-button.png";
 import MoreIcon from "../assets/ic-more-vert-18px.png";
@@ -9,9 +9,17 @@ import BlacklistUserIcon from "../assets/np_delete-friend_3248001_000000 1.png";
 import ViewUserIcon from "../assets/np_view_1214519_000000 1.png";
 
 export const Table: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
   const [showPopup, setShowPopup] = useState(false);
   const [selectedUser, setSelectedUser] = useState<number | null>(null);
   const [showFilterPopup, setShowFilterPopup] = useState(false);
+  
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 480);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Toggle filter popup visibility
   const toggleFilterPopup = () => {
@@ -152,8 +160,28 @@ export const Table: React.FC = () => {
             >
               <td className={styles.tableBodyInner}>{user.organization}</td>
               <td className={styles.tableBodyInner}>{user.userName}</td>
-              <td className={styles.tableBodyInner}>{user.email}</td>
-              <td className={styles.tableBodyInner}>{user.phoneNumber}</td>
+              <td className={styles.tableBodyInner} 
+                style={{
+                  width: isMobile ? "70px" : "auto",
+                  flexDirection: "column",
+                  // flexWrap: "wrap",
+                  inlineSize: "70px",
+                  overflowWrap: "break-word",
+                 }}
+                >
+                      {user.email}
+              </td>
+              <td className={styles.tableBodyInner}
+                style={{
+                  width: isMobile ? "70px" : "auto",
+                  flexDirection: "column",
+                  // flexWrap: "wrap",
+                  inlineSize: "70px",
+                  overflowWrap: "break-word",
+                 }}
+              >
+                {user.phoneNumber}
+              </td>
               <td className={styles.tableBodyInner} style={{ width: "154px" }}>
                 {user.dateJoined}
               </td>
@@ -237,7 +265,7 @@ export const Table: React.FC = () => {
               value={formData.organization}
               onChange={handleChange}
               className={styles.dropdown}
-              style={{ width: "255px" }}
+              style={{ width: isMobile ? "145px" : "255px" }}
             >
               <option value="">Select</option>
               <option value="Organization1">Organization 1</option>
@@ -289,7 +317,7 @@ export const Table: React.FC = () => {
               value={formData.status}
               onChange={handleChange}
               className={styles.dropdown}
-              style={{ width: "255px" }}
+              style={{  width: isMobile ? "145px" : "255px"  }}
             >
               <option value="">Select</option>
               <option value="active">Active</option>
