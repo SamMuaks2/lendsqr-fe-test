@@ -3,6 +3,21 @@
   flex-direction: row;
   gap: 26px;
 
+  @media (max-width: 768px) {
+    .cardsContainer {
+      width: 90%;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cardsContainer {
+      width: 90%;
+      gap: 10px;
+      overflow-x: auto;
+    }
+  }
+
   .card {
     display: flex;
     flex-direction: column;
@@ -17,9 +32,35 @@
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 
+    @media (max-width: 768px) {
+      .card {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 150px;
+      }
+    }
+
     .icon {
       width: 40px;
       height: 40px;
+
+      @media (max-width: 768px) {
+        .icon {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
     }
 
     img {
@@ -31,6 +72,20 @@
       font-size: 14px;
       line-height: 16.42px;
       color: #545f7d;
+
+      @media (max-width: 768px) {
+        .cardTitle {
+          font-size: 12px;
+          line-height: 14.42px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cardTitle {
+          font-size: 8px;
+          line-height: 10.42px;
+        }
+      }
     }
 
     .cardValue {
@@ -38,6 +93,20 @@
       font-size: 24px;
       line-height: 28.15px;
       color: #213f7d;
+
+      @media (max-width: 768px) {
+        .cardValue {
+          font-size: 18px;
+          line-height: 22.15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cardValue {
+          font-size: 12px;
+          line-height: 16.15px;
+        }
+      }
     }
 
     h3 {

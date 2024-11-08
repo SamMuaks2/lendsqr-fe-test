@@ -138,6 +138,8 @@
       @media (max-width: 480px) {
         width: 70px;
         flex-wrap: wrap;
+        text-align: center;
+        align-items: flex-end;
       }
 
       .status {
@@ -150,12 +152,12 @@
 
         @media (max-width: 768px) {
           width: 90px;
-          // padding: 2px 4px;
+          padding: 0;
         }
 
         @media (max-width: 480px) {
           width: 70px;
-          // padding: 2px 4px;
+          padding: 0;
           transform: rotate(-90deg);
         }
 
