@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 import Cards from "../Components/Cards";
@@ -10,6 +10,9 @@ import ViewUserIcon from "../assets/np_view_1214519_000000 1.png";
 import { Pagination } from "../Components/Pagination";
 
 const UserPage: React.FC = () => {
+  const [users, setUsers] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
   const [formData, setFormData] = useState({
     organization: "",
     username: "",
@@ -18,6 +21,24 @@ const UserPage: React.FC = () => {
     phoneNumber: "",
     status: "",
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://run.mocky.io/v3/c0190d4e-fe4a-40ce-b8af-82038f7fd9db"
+        );
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -55,7 +76,7 @@ const UserPage: React.FC = () => {
           <h1>Users</h1>
           <Cards />
 
-          <Table />
+          <Table data={users} loading={loading} />
 
           {/* Mini form */}
           <form onSubmit={handleFilter} className={styles.filterForm}>
