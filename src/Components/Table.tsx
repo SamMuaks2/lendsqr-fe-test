@@ -13,13 +13,25 @@ export const Table: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedUser, setSelectedUser] = useState<number | null>(null);
   const [showFilterPopup, setShowFilterPopup] = useState(false);
-  
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 480);
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const splitEmail = (email: string) => {
+    const [localPart, domain] = email.split("@");
+    return { localPart, domain };
+  };
+
+  const splitInCenter = (text: string) => {
+    const midpoint = Math.floor(text.length / 2);
+    const firstPart = text.slice(0, midpoint);
+    const secondPart = text.slice(midpoint);
+    return { firstPart, secondPart };
+  };
 
   // Toggle filter popup visibility
   const toggleFilterPopup = () => {
@@ -94,7 +106,19 @@ export const Table: React.FC = () => {
         <thead>
           <tr className={styles.tableHead}>
             <th className={styles.tableHeadInner}>
-              <h4 className={styles.tableTitle}>ORGANIZATION</h4>
+              <h4 className={styles.tableTitle}>
+                {(() => {
+                  const { firstPart, secondPart } =
+                    splitInCenter("ORGANIZATION");
+                  return (
+                    <>
+                      <span>{firstPart}</span>
+                      <wbr />
+                      <span>{secondPart}</span>
+                    </>
+                  );
+                })()}
+              </h4>
               <button
                 onClick={toggleFilterPopup}
                 style={{
@@ -160,27 +184,29 @@ export const Table: React.FC = () => {
             >
               <td className={styles.tableBodyInner}>{user.organization}</td>
               <td className={styles.tableBodyInner}>{user.userName}</td>
-              <td className={styles.tableBodyInner} 
-                style={{
-                  width: isMobile ? "70px" : "auto",
-                  flexDirection: "column",
-                  // flexWrap: "wrap",
-                  inlineSize: "70px",
-                  overflowWrap: "break-word",
-                 }}
-                >
-                      {user.email}
+              <td className={styles.tableBodyInner}>
+                {(() => {
+                  const { localPart, domain } = splitEmail(user.email);
+                  return (
+                    <>
+                      <span>{localPart}@</span>
+                      <span>{domain}</span>
+                    </>
+                  );
+                })()}
               </td>
-              <td className={styles.tableBodyInner}
-                style={{
-                  width: isMobile ? "70px" : "auto",
-                  flexDirection: "column",
-                  // flexWrap: "wrap",
-                  inlineSize: "70px",
-                  overflowWrap: "break-word",
-                 }}
-              >
-                {user.phoneNumber}
+              <td className={styles.tableBodyInner}>
+                {(() => {
+                  const { firstPart, secondPart } = splitInCenter(
+                    user.phoneNumber
+                  );
+                  return (
+                    <>
+                      <span>{firstPart}</span>
+                      <span>{secondPart}</span>
+                    </>
+                  );
+                })()}
               </td>
               <td className={styles.tableBodyInner} style={{ width: "154px" }}>
                 {user.dateJoined}
@@ -216,15 +242,15 @@ export const Table: React.FC = () => {
                 {showPopup && selectedUser === user.id && (
                   <div className={styles.popup}>
                     <ul>
-                      <Link to="/user/:id" style={{textDecoration: "none"}}>
-                      <li onClick={closePopup}>
-                        <img
-                          src={ViewUserIcon}
-                          alt=""
-                          className={styles.popupImage}
-                        />
-                        View details
-                      </li>
+                      <Link to="/user/:id" style={{ textDecoration: "none" }}>
+                        <li onClick={closePopup}>
+                          <img
+                            src={ViewUserIcon}
+                            alt=""
+                            className={styles.popupImage}
+                          />
+                          View details
+                        </li>
                       </Link>
                       <li onClick={closePopup}>
                         <img
@@ -317,7 +343,7 @@ export const Table: React.FC = () => {
               value={formData.status}
               onChange={handleChange}
               className={styles.dropdown}
-              style={{  width: isMobile ? "145px" : "255px"  }}
+              style={{ width: isMobile ? "145px" : "255px" }}
             >
               <option value="">Select</option>
               <option value="active">Active</option>
