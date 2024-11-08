@@ -96,6 +96,24 @@
         }
       }
     }
+
+    .toggleSidebarBtn {
+      display: none;
+      align-self: right;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: #213f7d;
+      color: #333;
+      padding: 0.5rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+
+      @media (max-width: 768px) {
+        display: flex !important;
+      }
+    }
   }
 
   @media (max-width: 1024px) {
@@ -112,53 +130,52 @@
   @media (max-width: 768px) {
     width: 200px;
     padding: 0.5rem;
-    
-    /* Hider for sidebar on mobile by default */
     position: absolute;
-    left: -200px;
-    
+    left: -185px;
     &.sidebarOpen {
       left: 0;
     }
-
-    .sideContainer {
-      margin-left: 0;
-    }
-
-    .switchOrg {
-      font-size: 14px;
-    }
-
-    .navList .navItem {
-      font-size: 14px;
-      width: auto;
-    }
-
-    /* Collapsing dropdown menu on small screens */
-    .dropdownMenu {
-      display: none;
-    }
-
-    .dropdown.open .dropdownMenu {
-      display: block;
-    }
-
-    .subNavList {
-      padding-left: 1rem;
-    }
-  }
-
-  /* Making sidebar toggleable on mobile devices */
-  .toggleSidebarBtn {
-    display: none;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: #213f7d;
-    cursor: pointer;
-
-    @media (max-width: 768px) {
-      display: block;
-    }
   }
 }
+
+//     .sideContainer {
+//       margin-left: 0;
+//     }
+
+//     .switchOrg {
+//       font-size: 14px;
+//     }
+
+//     .navList .navItem {
+//       font-size: 14px;
+//       width: auto;
+//     }
+
+//     /* Collapsing dropdown menu on small screens */
+//     .dropdownMenu {
+//       display: none;
+//     }
+
+//     .dropdown.open .dropdownMenu {
+//       display: block;
+//     }
+
+//     .subNavList {
+//       padding-left: 1rem;
+//     }
+//   }
+
+//   /* Making sidebar toggleable on mobile devices */
+//   .toggleSidebarBtn {
+//     display: none;
+//     position: absolute;
+//     top: 1rem;
+//     left: 1rem;
+//     background-color: #213f7d;
+//     cursor: pointer;
+
+//     @media (max-width: 768px) {
+//       display: block;
+//     }
+//   }
+// }

@@ -37,12 +37,20 @@ const Sidebar: React.FC = () => {
   const organizations = ["Organization A", "Organization B", "Organization C"];
 
   return (
-    <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebaropen : ''}`}>
-      <div className={styles.sideContainer}>
-        <button className={styles.toggleSidebarBtn} onClick={toggleSidebar}>
-          {"=>"}&#9776;
+    <aside
+      className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ""}`}
+    >
+      <div className={styles.sideButtonContainer}>
+        <button
+          className={styles.toggleSidebarBtn}
+          style={{ marginLeft: "175px" }}
+          onClick={toggleSidebar}
+        >
+          &#9776;
         </button>
+      </div>
 
+      <div className={styles.sideContainer}>
         <div className={styles.dropdown}>
           <button onClick={toggleDropdown} className={styles.switchOrg}>
             <img src={Briefcase} alt="" />
